@@ -52,52 +52,6 @@ resource "google_sql_user" "gcpzg_db_user" {
   password = "petclinic"
 }
 
-
-
-############ test db #############
-resource "google_sql_database_instance" "gcpzg_test_db_ane3" {
-  name                = "gcpzg-test-db-ane3"
-  database_version    = "MYSQL_5_7"
-  root_password       = "gcpzg"
-  deletion_protection = true
-
-  settings {
-    tier              = "db-f1-micro"
-    availability_type = "ZONAL"
-    disk_size         = 10
-
-    # 용량에 따라 저장소 크기 조절 가능!
-    disk_autoresize = true
-    disk_autoresize_limit = 20
-
-    # DB 생성할 위치 지정
-    location_preference {
-      zone           = "asia-northeast3-a"
-    }
-
-    ip_configuration {
-      ipv4_enabled    = false
-      private_network = google_compute_network.gcpzg_vpc.id
-    }
-  }
-  depends_on = [google_service_networking_connection.db_connection]
-}
-# gcpzg_db_ane3 에 들어갈 데이터 베이스 생성 (petclinic이 기본적으로 사용하는 데이터베이스 이름)
-resource "google_sql_database" "gcpzg_test_db_database" {
-  instance = google_sql_database_instance.gcpzg_test_db_ane3.name
-  name     = "petclinic"
-}
-
-# gcpzg_db_ane3의 사용자와 P/W 생성 (petclinic이 기본적으로 사용하는 사용자와 P/W)
-resource "google_sql_user" "gcpzg_test_db_user" {
-  instance = google_sql_database_instance.gcpzg_test_db_ane3.name
-  name     = "petclinic"
-  password = "petclinic"
-}
-
-
-
-
 # VPC 피어링 용도의 서브넷 주소를 생성
 resource "google_compute_global_address" "db_private_ip_address" {
   name          = "gcpzg-private-ip-address"
