@@ -9,7 +9,7 @@ terraform {
 
 provider "google" {
   credentials = var.gcp_creds
-  project     = "hyunyoung-01-368306"
+  project     = "book-401406"
   region      = "asia-northeast3"
   zone        = "asia-northeast3-a"
 }
