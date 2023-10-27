@@ -11,7 +11,7 @@ resource "google_compute_global_address" "ip_db_address_prod" {
   network       = google_compute_network.vpc.id
 }
 
-resource "google_compute_global_address" "ip_db_address_test" {
+resource "google_compute_global_address" "ip_db_address_dev" {
   name          = "ip-db-address-test"
 
   purpose       = "VPC_PEERING"
