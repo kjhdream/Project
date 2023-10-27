@@ -8,13 +8,13 @@ terraform {
 }
 
 provider "google" {
-  credentials = var.gcp_creds
+  credentials = var.google_key
   project     = "book-401406"
   region      = "asia-northeast3"
   zone        = "asia-northeast3-a"
 }
 
 # Terraform Cloud에서 Sensitive 변수(gcp_creds)를 추가해주었음
-variable "gcp_creds" {
+variable "google_key" {
   default = ""
 }
