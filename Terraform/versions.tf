@@ -9,7 +9,7 @@ terraform {
 
 provider "google" {
   credentials = var.google_key
-  project     = "book-401406"
+  project     = "boutique-403112"
   region      = "asia-northeast3"
   zone        = "asia-northeast3-a"
 }
