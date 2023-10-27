@@ -1,4 +1,4 @@
-### prod db ###
+### prod db ####
 resource "google_sql_database_instance" "gcpzg_db_ane3" {
   name                = "gcpzg-prod-db-ane3"
   database_version    = "MYSQL_5_7"
