@@ -3,7 +3,7 @@ resource "google_sql_database_instance" "gcpzg_db_ane3" {
   name                = "gcpzg-prod-db-ane3"
   database_version    = "MYSQL_5_7"
   root_password       = "gcpzg"
-  deletion_protection = true
+  deletion_protection = false
 
   settings {
     tier              = "db-n1-standard-2"
@@ -59,7 +59,7 @@ resource "google_sql_database_instance" "gcpzg_test_db_ane3" {
   name                = "gcpzg-test-db-ane3"
   database_version    = "MYSQL_5_7"
   root_password       = "gcpzg"
-  deletion_protection = true
+  deletion_protection = false
 
   settings {
     tier              = "db-f1-micro"
