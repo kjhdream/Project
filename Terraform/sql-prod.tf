@@ -2,7 +2,7 @@
 resource "google_sql_database_instance" "gcpzg_db_ane3" {
   name                = "gcpzg-prod-db-ane3"
   database_version    = "MYSQL_5_7"
-  root_password       = "qwe123!@#"
+  root_password       = "gcpzg"
   deletion_protection = true
 
   settings {
@@ -49,7 +49,7 @@ resource "google_sql_database" "gcpzg_db_database" {
 resource "google_sql_user" "gcpzg_db_user" {
   instance = google_sql_database_instance.gcpzg_db_ane3.name
   name     = "petclinic"
-  password = "qwe123!@#"
+  password = "petclinic"
 }
 
 
@@ -92,7 +92,7 @@ resource "google_sql_database" "gcpzg_test_db_database" {
 resource "google_sql_user" "gcpzg_test_db_user" {
   instance = google_sql_database_instance.gcpzg_test_db_ane3.name
   name     = "petclinic"
-  password = "qwe123!@#"
+  password = "petclinic"
 }
 
 
@@ -115,4 +115,3 @@ resource "google_service_networking_connection" "db_connection" {
   service                 = "servicenetworking.googleapis.com"
   reserved_peering_ranges = [google_compute_global_address.db_private_ip_address.name]
 }
-
