@@ -29,7 +29,7 @@ resource "google_sql_database_instance" "sql_prod" {
       location           = "asia-northeast3"
     }
   }
-  depends_on = [google_service_networking_connection.db_connection_prod]
+  depends_on = [google_service_networking_connection.db_connection_test]
 }
 
 resource "google_sql_database" "sql_prod_database" {
