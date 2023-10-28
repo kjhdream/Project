@@ -29,12 +29,6 @@ resource "google_compute_subnetwork" "subnet_proxy" {
   }
 }
 
-resource "google_service_networking_connection" "db_connection_prod" {
-  network                 = google_compute_network.vpc.id
-  service                 = "servicenetworking.googleapis.com"
-  reserved_peering_ranges = [google_compute_global_address.ip_db_address_prod.name]
-}
-
 resource "google_service_networking_connection" "db_connection_test" {
   network                 = google_compute_network.vpc.id
   service                 = "servicenetworking.googleapis.com"
